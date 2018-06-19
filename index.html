@@ -24,11 +24,50 @@
     <script>
         $.ajax({
             type: 'GET',
-            url: "http://localhost:3005/meteo",
+            url: "http://localhost:3005/reunion",
             success: function (data) {
                 //       console.log("Dans success Ajax");
                 var meteo = JSON.parse(data.body)
-                $("#meteo").append("temperature reunion = " +meteo.main.temp)
+                $("#meteo").append("temperature reunion = " +meteo.main.temp +"<br/>")
+                
+            },
+            failed: function (data, status) {
+                return false;
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:3005/moscou",
+            success: function (data) {
+                //       console.log("Dans success Ajax");
+                var meteo = JSON.parse(data.body)
+                $("#meteo").append("temperature moscou = " +meteo.main.temp +"<br/>")
+                
+            },
+            failed: function (data, status) {
+                return false;
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:3005/paris",
+            success: function (data) {
+                //       console.log("Dans success Ajax");
+                var meteo = JSON.parse(data.body)
+                $("#meteo").append("temperature paris= " +meteo.main.temp +"<br/>")
+                
+            },
+            failed: function (data, status) {
+                return false;
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:3005/marseille",
+            success: function (data) {
+                //       console.log("Dans success Ajax");
+                var meteo = JSON.parse(data.body)
+                $("#meteo").append("temperature marseille= " +meteo.main.temp +"<br/>")
                 
             },
             failed: function (data, status) {
